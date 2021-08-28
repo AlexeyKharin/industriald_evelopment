@@ -24,7 +24,7 @@ class ProfileHeaderView: UIView {
         return label
     }()
     
-     lazy var button: UIButton = {
+    lazy var button: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .blue
         print("button \(type(of: self))")
@@ -54,7 +54,7 @@ class ProfileHeaderView: UIView {
         label.text = "Waiting for sonething..."
         return label
     }()
-
+    
     lazy var textfield: UITextField = {
         let textField = UITextField()
         print("textField \(type(of: self))")
@@ -76,13 +76,6 @@ class ProfileHeaderView: UIView {
         backgroundColor = .lightGray
         
         [image, label, labeltwo, textfield, button].forEach { addSubview($0) }
-        
-        
-//        buttonTitle.snp.makeConstraints { (make) -> Void in
-//            make.left.equalTo(view.safeAreaLayoutGuide).offset(12)
-//            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-12)
-//            make.right.equalTo(view.safeAreaLayoutGuide).offset(-12)
-//        }
         
         image.snp.makeConstraints({ (make) -> Void in
             make.top.equalTo(self).offset(12)
@@ -123,7 +116,7 @@ class ProfileHeaderView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-
+    
 }
 
 extension UIView {
