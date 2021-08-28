@@ -1,6 +1,6 @@
 
 import UIKit
-
+import SnapKit
 class ProfileHeaderView: UIView {
     
     lazy var image: UIImageView = {
@@ -24,7 +24,7 @@ class ProfileHeaderView: UIView {
         return label
     }()
     
-     lazy var button: UIButton = {
+    lazy var button: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .blue
         print("button \(type(of: self))")
@@ -54,7 +54,7 @@ class ProfileHeaderView: UIView {
         label.text = "Waiting for sonething..."
         return label
     }()
-
+    
     lazy var textfield: UITextField = {
         let textField = UITextField()
         print("textField \(type(of: self))")
@@ -76,42 +76,47 @@ class ProfileHeaderView: UIView {
         backgroundColor = .lightGray
         
         [image, label, labeltwo, textfield, button].forEach { addSubview($0) }
-        let constraints = [
         
-            image.topAnchor.constraint(equalTo: topAnchor, constant: 12),
-            image.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            image.heightAnchor.constraint(equalToConstant: 100),
-            image.widthAnchor.constraint(equalToConstant: 100),
-            
-            label.topAnchor.constraint(equalTo: topAnchor, constant: 27),
-            label.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 20),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            label.heightAnchor.constraint(equalToConstant: 20),
-            
-            labeltwo.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 8),
-            labeltwo.leadingAnchor.constraint(equalTo: label.leadingAnchor),
-            labeltwo.trailingAnchor.constraint(equalTo: label.trailingAnchor),
-            labeltwo.heightAnchor.constraint(equalToConstant: 25),
-            
-            textfield.topAnchor.constraint(equalTo: labeltwo.bottomAnchor, constant: 8),
-            textfield.leadingAnchor.constraint(equalTo: label.leadingAnchor),
-            textfield.trailingAnchor.constraint(equalTo: label.trailingAnchor),
-            textfield.heightAnchor.constraint(equalToConstant: 40),
-            
-            button.topAnchor.constraint(equalTo: textfield.bottomAnchor, constant: 15),
-            button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            button.heightAnchor.constraint(equalToConstant: 50),
-            
-            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -27)
-        ]
+        image.snp.makeConstraints({ (make) -> Void in
+            make.top.equalTo(self).offset(12)
+            make.left.equalTo(self).offset(16)
+            make.height.equalTo(100)
+            make.width.equalTo(100)
+        })
         
-        NSLayoutConstraint.activate(constraints)
+        label.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self).offset(27)
+            make.left.equalTo(image.snp.right).offset(20)
+            make.right.equalTo(self).offset(-16)
+            make.height.equalTo(20)
+        }
+        
+        labeltwo.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(label.snp.bottom).offset(8)
+            make.left.equalTo(label)
+            make.right.equalTo(label)
+            make.height.equalTo(25)
+        }
+        
+        textfield.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(labeltwo.snp.bottom).offset(8)
+            make.left.equalTo(label)
+            make.right.equalTo(label)
+            make.height.equalTo(40)
+        }
+        
+        button.snp.makeConstraints { (make) -> Void  in
+            make.top.equalTo(textfield.snp.bottom).offset(15)
+            make.left.equalTo(self).offset(16)
+            make.right.equalTo(self).offset(-16)
+            make.height.equalTo(50)
+            make.bottom.equalTo(self).offset(-27)
+        }
     }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-
+    
 }
 
 extension UIView {
