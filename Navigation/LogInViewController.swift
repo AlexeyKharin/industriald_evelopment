@@ -5,8 +5,8 @@ import SnapKit
 
 class LogInViewController: UIViewController {
     
-//    var outPut: LoginViewControllerDelegate?
-   
+    //    var outPut: LoginViewControllerDelegate?
+    
     var image: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "logo")
@@ -14,8 +14,7 @@ class LogInViewController: UIViewController {
         return image
     }()
     
-
-        lazy var buyButton: UIButton = {
+    lazy var buyButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Log in", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -32,27 +31,14 @@ class LogInViewController: UIViewController {
     }()
     
     @objc func press () {
-
-    }
-
-//    MARK:- Out from account
-    lazy var buttonOut: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Sign Out", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.toAutoLayout()
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        button.setBackgroundImage(#imageLiteral(resourceName: "blue_pixel").alpha(1), for: .normal)
-        button.layer.cornerRadius = 3
-        button.contentHorizontalAlignment = .center
-        button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(signOut), for: .touchUpInside)
-        return button
-    }()
-    
-    @objc func signOut () {
-
-        buttonOut.removeFromSuperview()
+        guard let logIn = textfieldTwo.text else  { return }
+        #if DEBUG
+        let vc = ProfileViewController(userService: TestUserService(), nameUser: logIn)
+        navigationController?.pushViewController(vc, animated: true)
+        #else
+        let vc = ProfileViewController(userService: CurrentUserService(), nameUser: logIn)
+        navigationController?.pushViewController(vc, animated: true)
+        #endif
     }
     
     var stack: UIStackView = {
@@ -80,13 +66,8 @@ class LogInViewController: UIViewController {
         textField.returnKeyType = .done
         textField.autocapitalizationType = .words
         textField.placeholder = "Password"
-        textField.addTarget(self, action: #selector(savePswd), for: .editingChanged)
         return textField
     }()
-    
-    @objc func savePswd() {
-        disAbleButton()
-    }
     
     lazy var textfieldTwo: MyTextField = {
         let textField = MyTextField()
@@ -97,13 +78,8 @@ class LogInViewController: UIViewController {
         textField.returnKeyType = .done
         textField.autocapitalizationType = .words
         textField.placeholder = "Email of phone"
-        textField.addTarget(self, action: #selector(saveLogin), for: .editingChanged)
         return textField
     }()
-    
-    @objc func saveLogin() {
-      
-    }
     
     func disAbleButton() {
         if textfieldOne.text?.count == 0 && textfieldTwo.text?.count == 0 {
@@ -127,7 +103,7 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-               
+        
         view.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.addSubview(containerView)
@@ -162,7 +138,7 @@ class LogInViewController: UIViewController {
             make.left.equalTo(containerView).offset(16)
             make.right.equalTo(containerView).offset(-16)
         }
-            
+        
         buyButton.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(stack.snp.bottom).offset(16)
             make.left.equalTo(containerView).offset(16)
