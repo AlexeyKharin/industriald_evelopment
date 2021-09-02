@@ -18,6 +18,7 @@
 		060782CA250CEE7200A87020 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060782C9250CEE7200A87020 /* Post.swift */; };
 		4157C187252A1C4A271CDC68 /* Pods_Navigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374602A8D17A231A127C3D44 /* Pods_Navigation.framework */; };
 		B4A3137626DA737F00AB2986 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = B4A3137526DA737F00AB2986 /* iOSIntPackage */; };
+		B4A8C04626E13DF800ADCC3F /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8C04526E13DF800ADCC3F /* LogInViewController.swift */; };
 		B4CADAD225B609AB00A84DBE /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CADAD125B609AB00A84DBE /* ProfileHeaderView.swift */; };
 		B4CADAD625B60A3300A84DBE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CADAD525B60A3300A84DBE /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		060782C9250CEE7200A87020 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		374602A8D17A231A127C3D44 /* Pods_Navigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Navigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BBDFB47B187E767CC5FFF4E /* Pods-Navigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navigation.debug.xcconfig"; path = "Target Support Files/Pods-Navigation/Pods-Navigation.debug.xcconfig"; sourceTree = "<group>"; };
+		B4A8C04526E13DF800ADCC3F /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		B4CADAD125B609AB00A84DBE /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		B4CADAD525B60A3300A84DBE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F161F68BF7636AE3E7DF93AC /* Pods-Navigation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navigation.release.xcconfig"; path = "Target Support Files/Pods-Navigation/Pods-Navigation.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				060782B3250CE27700A87020 /* SceneDelegate.swift */,
 				060782B5250CE27700A87020 /* FeedViewController.swift */,
 				060782B7250CE27700A87020 /* Main.storyboard */,
+				B4A8C04526E13DF800ADCC3F /* LogInViewController.swift */,
 				060782BA250CE27A00A87020 /* Assets.xcassets */,
 				060782BC250CE27A00A87020 /* LaunchScreen.storyboard */,
 				060782BF250CE27A00A87020 /* Info.plist */,
@@ -239,6 +242,7 @@
 			files = (
 				060782B6250CE27700A87020 /* FeedViewController.swift in Sources */,
 				060782B2250CE27700A87020 /* AppDelegate.swift in Sources */,
+				B4A8C04626E13DF800ADCC3F /* LogInViewController.swift in Sources */,
 				060782C6250CEB0A00A87020 /* InfoViewController.swift in Sources */,
 				060782CA250CEE7200A87020 /* Post.swift in Sources */,
 				B4CADAD225B609AB00A84DBE /* ProfileHeaderView.swift in Sources */,

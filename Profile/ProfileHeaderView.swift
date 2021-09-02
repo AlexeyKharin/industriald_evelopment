@@ -1,6 +1,7 @@
 
 import UIKit
 import SnapKit
+
 class ProfileHeaderView: UIView {
     
     lazy var image: UIImageView = {
