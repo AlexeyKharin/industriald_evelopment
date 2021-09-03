@@ -21,6 +21,8 @@
 		B4A8C04626E13DF800ADCC3F /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8C04526E13DF800ADCC3F /* LogInViewController.swift */; };
 		B4A8C04926E145B500ADCC3F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8C04826E145B500ADCC3F /* User.swift */; };
 		B4A8C04C26E15F3F00ADCC3F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8C04B26E15F3F00ADCC3F /* UserService.swift */; };
+		B4A8C05126E29EDB00ADCC3F /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8C05026E29EDB00ADCC3F /* LoginInspector.swift */; };
+		B4A8C05426E2AC7100ADCC3F /* MyLoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8C05326E2AC7100ADCC3F /* MyLoginFactory.swift */; };
 		B4CADAD225B609AB00A84DBE /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CADAD125B609AB00A84DBE /* ProfileHeaderView.swift */; };
 		B4CADAD625B60A3300A84DBE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CADAD525B60A3300A84DBE /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +44,8 @@
 		B4A8C04526E13DF800ADCC3F /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		B4A8C04826E145B500ADCC3F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B4A8C04B26E15F3F00ADCC3F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		B4A8C05026E29EDB00ADCC3F /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
+		B4A8C05326E2AC7100ADCC3F /* MyLoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLoginFactory.swift; sourceTree = "<group>"; };
 		B4CADAD125B609AB00A84DBE /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		B4CADAD525B60A3300A84DBE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F161F68BF7636AE3E7DF93AC /* Pods-Navigation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navigation.release.xcconfig"; path = "Target Support Files/Pods-Navigation/Pods-Navigation.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,9 +90,7 @@
 				060782B3250CE27700A87020 /* SceneDelegate.swift */,
 				060782B5250CE27700A87020 /* FeedViewController.swift */,
 				060782B7250CE27700A87020 /* Main.storyboard */,
-				B4A8C04526E13DF800ADCC3F /* LogInViewController.swift */,
-				B4A8C04826E145B500ADCC3F /* User.swift */,
-				B4A8C04B26E15F3F00ADCC3F /* UserService.swift */,
+				B4A8C05626E2B3B800ADCC3F /* LogIn */,
 				060782BA250CE27A00A87020 /* Assets.xcassets */,
 				060782BC250CE27A00A87020 /* LaunchScreen.storyboard */,
 				060782BF250CE27A00A87020 /* Info.plist */,
@@ -114,6 +116,18 @@
 				F161F68BF7636AE3E7DF93AC /* Pods-Navigation.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B4A8C05626E2B3B800ADCC3F /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				B4A8C04826E145B500ADCC3F /* User.swift */,
+				B4A8C04526E13DF800ADCC3F /* LogInViewController.swift */,
+				B4A8C04B26E15F3F00ADCC3F /* UserService.swift */,
+				B4A8C05026E29EDB00ADCC3F /* LoginInspector.swift */,
+				B4A8C05326E2AC7100ADCC3F /* MyLoginFactory.swift */,
+			);
+			name = LogIn;
 			sourceTree = "<group>";
 		};
 		B4CADAD025B6097600A84DBE /* Profile */ = {
@@ -249,11 +263,13 @@
 				060782B6250CE27700A87020 /* FeedViewController.swift in Sources */,
 				060782B2250CE27700A87020 /* AppDelegate.swift in Sources */,
 				B4A8C04626E13DF800ADCC3F /* LogInViewController.swift in Sources */,
+				B4A8C05126E29EDB00ADCC3F /* LoginInspector.swift in Sources */,
 				060782C6250CEB0A00A87020 /* InfoViewController.swift in Sources */,
 				060782CA250CEE7200A87020 /* Post.swift in Sources */,
 				B4CADAD225B609AB00A84DBE /* ProfileHeaderView.swift in Sources */,
 				B4A8C04C26E15F3F00ADCC3F /* UserService.swift in Sources */,
 				060782B4250CE27700A87020 /* SceneDelegate.swift in Sources */,
+				B4A8C05426E2AC7100ADCC3F /* MyLoginFactory.swift in Sources */,
 				B4CADAD625B60A3300A84DBE /* ProfileViewController.swift in Sources */,
 				B4A8C04926E145B500ADCC3F /* User.swift in Sources */,
 				060782C8250CEE5D00A87020 /* PostViewController.swift in Sources */,
