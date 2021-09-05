@@ -1,8 +1,18 @@
-
+import iOSIntPackage
 import UIKit
 import SnapKit
 
-class ProfileHeaderView: UIView {
+class ProfileHeaderForSectionOne: UITableViewHeaderFooterView {
+    
+    var profileHeder: PostContent? {
+        didSet {
+            label.text = profileHeder?.profileName
+            labeltwo.text = profileHeder?.profileStatus
+            loadImage(image: (profileHeder?.profileImage)!)
+        }
+    }
+    
+    var delegate: CellDelegate?
     
     lazy var image: UIImageView = {
         let image = UIImageView()
@@ -14,6 +24,13 @@ class ProfileHeaderView: UIView {
         image.toAutoLayout()
         return image
     }()
+    
+    func loadImage(image: UIImage) {
+        let processor = ImageProcessor()
+        processor.processImage(sourceImage: image, filter: .process) { resultImage in
+            self.image.image = resultImage
+        }
+    }
     
     lazy var label: UILabel = {
         let label = UILabel()
@@ -69,26 +86,77 @@ class ProfileHeaderView: UIView {
         return textField
     }()
     
+    lazy var placeForCollection: UIView = {
+        let placeForCollection = UIView()
+        placeForCollection.toAutoLayout()
+        placeForCollection.backgroundColor = .white
+        return placeForCollection
+    }()
+    
+    lazy var collection: CallPfotosCell = {
+        let collection = CallPfotosCell()
+        collection.toAutoLayout()
+        return collection
+    }()
+    
+    lazy var labePhoto: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.textColor = .black
+        label.toAutoLayout()
+        label.backgroundColor = .white
+        label.text = "Photos"
+        return label
+    }()
+    
+    lazy var backgruond: UIView = {
+        let backgruond = UIView()
+        backgruond.toAutoLayout()
+        backgruond.backgroundColor = .lightGray
+        return backgruond
+    }()
+    
+    lazy var buttonPhotos: UIButton = {
+        let button = UIButton(type: .system)
+        button.toAutoLayout()
+        button.setImage(UIImage(systemName: "arrow.right")?.withTintColor(UIColor.systemRed).withRenderingMode(.alwaysOriginal), for:.normal)
+        button.addTarget(self, action: #selector(callGallaryPhotos), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc func callGallaryPhotos() {
+        delegate?.openGallaryPhotosUINavigationController()
+    }
+    
     private var statusText: String?
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        contentView.addSubview(backgruond)
+        [image, label, button, labeltwo, textfield, placeForCollection].forEach { backgruond.addSubview($0) }
+        placeForCollection.addSubview(labePhoto)
+        placeForCollection.addSubview(collection)
+        placeForCollection.addSubview(buttonPhotos)
         
         backgroundColor = .lightGray
         
-        [image, label, labeltwo, textfield, button].forEach { addSubview($0) }
+        backgruond.snp.makeConstraints { (make) -> Void  in
+            make.top.equalTo(contentView)
+            make.left.equalTo(contentView)
+            make.right.equalTo(contentView)
+        }
         
         image.snp.makeConstraints({ (make) -> Void in
-            make.top.equalTo(self).offset(12)
-            make.left.equalTo(self).offset(16)
+            make.top.equalTo(backgruond).offset(12)
+            make.left.equalTo(backgruond).offset(16)
             make.height.equalTo(100)
             make.width.equalTo(100)
         })
         
         label.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self).offset(27)
+            make.top.equalTo(backgruond).offset(27)
             make.left.equalTo(image.snp.right).offset(20)
-            make.right.equalTo(self).offset(-16)
+            make.right.equalTo(backgruond).offset(-16)
             make.height.equalTo(20)
         }
         
@@ -108,10 +176,44 @@ class ProfileHeaderView: UIView {
         
         button.snp.makeConstraints { (make) -> Void  in
             make.top.equalTo(textfield.snp.bottom).offset(15)
-            make.left.equalTo(self).offset(16)
-            make.right.equalTo(self).offset(-16)
+            make.left.equalTo(backgruond).offset(16)
+            make.right.equalTo(backgruond).offset(-16)
             make.height.equalTo(50)
-            make.bottom.equalTo(self).offset(-27)
+        }
+        
+        
+        placeForCollection.snp.makeConstraints { (make) -> Void  in
+            make.top.equalTo(button.snp.bottom).offset(10)
+            make.left.equalTo(backgruond)
+            make.right.equalTo(backgruond)
+        }
+        
+        labePhoto.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(placeForCollection).offset(12)
+            make.left.equalTo(placeForCollection).offset(12)
+            make.height.equalTo(24)
+        }
+        
+        buttonPhotos.snp.makeConstraints { (make) -> Void in
+            make.centerY.equalTo(labePhoto.snp.centerY)
+            make.right.equalTo(placeForCollection.snp.right).offset(-12)
+            make.height.equalTo(35)
+            make.width.equalTo(35)
+        }
+        
+        collection.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(labePhoto.snp.bottom).offset(12)
+            make.left.equalTo(placeForCollection)
+            make.right.equalTo(placeForCollection)
+            make.bottom.equalTo(placeForCollection)
+        }
+        
+        placeForCollection.snp.makeConstraints { (make) -> Void  in
+            make.bottom.equalTo(backgruond).offset(-8)
+        }
+        
+        backgruond.snp.makeConstraints { (make) -> Void  in
+            make.bottom.equalTo(contentView)
         }
     }
     required init?(coder: NSCoder) {
