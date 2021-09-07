@@ -9,9 +9,9 @@ import UIKit
 
 class PhotoForGalleryCell: UICollectionViewCell {
    
-    var photo: Photo? {
+    var photo: UIImage? {
         didSet {
-            photoInGallery.image = photo?.image
+            photoInGallery.image = photo
             print("Фото загружено")
         }
     }

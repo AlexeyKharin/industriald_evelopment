@@ -4,7 +4,6 @@ import SnapKit
 
 class ProfileViewController: UIViewController {
         
-//    lazy var pofVc = ProfileHeaderView()
         var userService: UserService
         var nameUser: String
     
@@ -32,9 +31,6 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
-//        loadImage(image: pofVc.image.image ?? UIImage())
-
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(view.safeAreaLayoutGuide)
