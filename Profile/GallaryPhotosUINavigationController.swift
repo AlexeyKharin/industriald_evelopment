@@ -1,11 +1,17 @@
 
-
 import UIKit
+import iOSIntPackage
 
 class GallaryPhotosUINavigationController: UIViewController {
     
+    var images: [UIImage] = []
+    
+    var collectiomImages: [UIImage] = []
+    
+    let imagePublisherFacade = ImagePublisherFacade()
+    
     private let layout = UICollectionViewFlowLayout()
-  
+    
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .white
@@ -18,9 +24,7 @@ class GallaryPhotosUINavigationController: UIViewController {
         )
         return collectionView
     }()
-
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Photo Galery"
@@ -28,8 +32,6 @@ class GallaryPhotosUINavigationController: UIViewController {
         layout.scrollDirection = .vertical
         view.addSubview(collectionView)
     }
-    
-    
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -41,19 +43,34 @@ class GallaryPhotosUINavigationController: UIViewController {
             height: view.bounds.height - view.safeAreaInsets.top
         )
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        Gallary.gallary[0].repository.forEach { images.append($0.image)}
+        imagePublisherFacade.subscribe(self)
+        imagePublisherFacade.addImagesWithTimer(time: 1, repeat: 20, userImages: images)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        imagePublisherFacade.removeSubscription(for: self)
+    }
 }
 
-extension GallaryPhotosUINavigationController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return Gallary.gallary.count
+extension GallaryPhotosUINavigationController: UICollectionViewDataSource, ImageLibrarySubscriber {
+    
+    func receive(images: [UIImage]) {
+        self.collectiomImages = images
+        self.collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Gallary.gallary[section].repository.count
+        return collectiomImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let photoInGallary = Gallary.gallary[indexPath.section].repository[indexPath.item]
+        
+        let photoInGallary = collectiomImages[indexPath.row]
         
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: String(describing: PhotoForGalleryCell.self),
@@ -65,19 +82,16 @@ extension GallaryPhotosUINavigationController: UICollectionViewDataSource {
 }
 
 extension GallaryPhotosUINavigationController: UICollectionViewDelegateFlowLayout {
-
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-            let width: CGFloat = (collectionView.bounds.width - 8 * 4) / 3
-            return CGSize(width: width, height: width)
-        }
-    
+        
+        let width: CGFloat = (collectionView.bounds.width - 8 * 4) / 3
+        return CGSize(width: width, height: width)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 8
     }
-  
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: .zero, left: 8, bottom: 20, right: 8)

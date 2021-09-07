@@ -17,7 +17,6 @@
 		060782C8250CEE5D00A87020 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060782C7250CEE5D00A87020 /* PostViewController.swift */; };
 		060782CA250CEE7200A87020 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060782C9250CEE7200A87020 /* Post.swift */; };
 		4157C187252A1C4A271CDC68 /* Pods_Navigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374602A8D17A231A127C3D44 /* Pods_Navigation.framework */; };
-		B4A3137626DA737F00AB2986 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = B4A3137526DA737F00AB2986 /* iOSIntPackage */; };
 		B4A8C04626E13DF800ADCC3F /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8C04526E13DF800ADCC3F /* LogInViewController.swift */; };
 		B4A8C04926E145B500ADCC3F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8C04826E145B500ADCC3F /* User.swift */; };
 		B4A8C04C26E15F3F00ADCC3F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8C04B26E15F3F00ADCC3F /* UserService.swift */; };
@@ -30,6 +29,7 @@
 		B4A8C06926E5302800ADCC3F /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8C06226E5302800ADCC3F /* PostTableViewCell.swift */; };
 		B4A8C06A26E5302800ADCC3F /* PhotoForGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8C06326E5302800ADCC3F /* PhotoForGalleryCell.swift */; };
 		B4A8C06B26E5302800ADCC3F /* GallaryPhotosUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8C06426E5302800ADCC3F /* GallaryPhotosUINavigationController.swift */; };
+		B4AB308A26E7CAC100E8A690 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = B4AB308926E7CAC100E8A690 /* iOSIntPackage */; };
 		B4CADAD225B609AB00A84DBE /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CADAD125B609AB00A84DBE /* ProfileHeaderView.swift */; };
 		B4CADAD625B60A3300A84DBE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CADAD525B60A3300A84DBE /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
@@ -71,7 +71,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4157C187252A1C4A271CDC68 /* Pods_Navigation.framework in Frameworks */,
-				B4A3137626DA737F00AB2986 /* iOSIntPackage in Frameworks */,
+				B4AB308A26E7CAC100E8A690 /* iOSIntPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,7 +187,7 @@
 			);
 			name = Navigation;
 			packageProductDependencies = (
-				B4A3137526DA737F00AB2986 /* iOSIntPackage */,
+				B4AB308926E7CAC100E8A690 /* iOSIntPackage */,
 			);
 			productName = Navigation;
 			productReference = 060782AE250CE27700A87020 /* Navigation.app */;
@@ -218,7 +218,7 @@
 			);
 			mainGroup = 060782A5250CE27700A87020;
 			packageReferences = (
-				B4A3137426DA737E00AB2986 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
+				B4AB308826E7CAC100E8A690 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
 			);
 			productRefGroup = 060782AF250CE27700A87020 /* Products */;
 			projectDirPath = "";
@@ -510,20 +510,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B4A3137426DA737E00AB2986 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
+		B4AB308826E7CAC100E8A690 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TrueMax/iOSIntPackage";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.2.3;
+				branch = imagepublisher;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B4A3137526DA737F00AB2986 /* iOSIntPackage */ = {
+		B4AB308926E7CAC100E8A690 /* iOSIntPackage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B4A3137426DA737E00AB2986 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
+			package = B4AB308826E7CAC100E8A690 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
 			productName = iOSIntPackage;
 		};
 /* End XCSwiftPackageProductDependency section */
