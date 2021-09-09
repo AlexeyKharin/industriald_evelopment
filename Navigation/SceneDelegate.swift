@@ -5,6 +5,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     private let myLoginFactory = MyLoginFactory()
+    private let model = Model()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
    
@@ -12,6 +13,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if let tabController = window?.rootViewController as? UITabBarController,let loginNavigation = tabController.viewControllers?.last as? UINavigationController, let loginController = loginNavigation.viewControllers.last as? LogInViewController {
             loginController.delegate = myLoginFactory
+        }
+        
+        if let tabController = window?.rootViewController as? UITabBarController {
+            let feedController = FeedViewController(model: model)
+            tabController.viewControllers?.append(feedController)
+            tabController.viewControllers![1].tabBarItem.selectedImage =  UIImage(systemName: "magnifyingglass")?.withTintColor(UIColor.systemRed).withRenderingMode(.alwaysOriginal)
+            tabController.viewControllers![1].tabBarItem.image = UIImage(systemName: "magnifyingglass")?.withTintColor(UIColor.systemGray4).withRenderingMode(.alwaysOriginal)
         }
     }
 

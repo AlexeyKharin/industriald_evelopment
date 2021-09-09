@@ -13,36 +13,24 @@ class LogInViewController: UIViewController {
         image.toAutoLayout()
         return image
     }()
-    
-    lazy var buyButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Log in", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.toAutoLayout()
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        button.setBackgroundImage(#imageLiteral(resourceName: "blue_pixel").alpha(1), for: .normal)
-        button.setBackgroundImage(#imageLiteral(resourceName: "blue_pixel").alpha(0.8), for: .disabled)
-        button.setBackgroundImage(#imageLiteral(resourceName: "blue_pixel").alpha(0.8), for: .selected)
-        button.setBackgroundImage(#imageLiteral(resourceName: "blue_pixel").alpha(0.8), for: .highlighted)
-        button.layer.cornerRadius = 10
-        button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(press), for: .touchUpInside)
-        return button
-    }()
-    
-    @objc func press () {
-        guard let logIn = textfieldTwo.text else  { return }
-        guard let pswd  = textfieldOne.text else  { return }
-        #if DEBUG
-        if delegate?.makeLoginInspector().checkLoginAndPswd(login: logIn, pswd: pswd) == true {
-            let vc = ProfileViewController(userService: TestUserService(), nameUser: logIn)
-            navigationController?.pushViewController(vc, animated: true)
+    lazy var loginButton: LoginButton = {
+        let loginButton = LoginButton(tittle: "Log in", cornerRadius: 10, backGroundImage: #imageLiteral(resourceName: "blue_pixel"), titTileColor: .white) { [weak self] in
+            guard let logIn = self?.textfieldTwo.text else  { return }
+            guard let pswd  = self?.textfieldOne.text else  { return }
+            #if DEBUG
+            if self?.delegate?.makeLoginInspector().checkLoginAndPswd(login: logIn, pswd: pswd) == true {
+                let vc = ProfileViewController(userService: TestUserService(), nameUser: logIn)
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
+            #else
+            let vc = ProfileViewController(userService: CurrentUserService(), nameUser: logIn)
+            self?.navigationController?.pushViewController(vc, animated: true)
+            #endif
         }
-        #else
-        let vc = ProfileViewController(userService: CurrentUserService(), nameUser: logIn)
-        navigationController?.pushViewController(vc, animated: true)
-        #endif
-    }
+        loginButton.layer.masksToBounds = true
+        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        return loginButton
+    }()
     
     var stack: UIStackView = {
         let stack = UIStackView()
@@ -84,13 +72,6 @@ class LogInViewController: UIViewController {
         return textField
     }()
     
-    func disAbleButton() {
-        if textfieldOne.text?.count == 0 && textfieldTwo.text?.count == 0 {
-            buyButton.isHidden = true
-        } else {
-            buyButton.isHidden = false
-        }
-    }
     private let containerView: UIView = {
         let containerView = UIView()
         containerView.toAutoLayout()
@@ -110,7 +91,7 @@ class LogInViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.addSubview(containerView)
-        [stack, buyButton, image].forEach { containerView.addSubview($0) }
+        [stack, loginButton, image].forEach { containerView.addSubview($0) }
         stack.addArrangedSubview(textfieldTwo)
         stack.addArrangedSubview(textfieldOne)
         
@@ -142,7 +123,7 @@ class LogInViewController: UIViewController {
             make.right.equalTo(containerView).offset(-16)
         }
         
-        buyButton.snp.makeConstraints { (make) -> Void in
+        loginButton.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(stack.snp.bottom).offset(16)
             make.left.equalTo(containerView).offset(16)
             make.right.equalTo(containerView).offset(-16)
