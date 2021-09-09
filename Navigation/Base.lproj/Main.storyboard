@@ -18,9 +18,6 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="UOy-8g-tjm" kind="relationship" relationship="rootViewController" id="g6E-pk-jmA"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mxn-0X-Agz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -33,21 +30,8 @@
                     <view key="view" contentMode="scaleToFill" id="hnQ-fB-PJI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ru-89-vrk">
-                                <rect key="frame" x="171" y="433" width="72" height="30"/>
-                                <state key="normal" title="Open post"/>
-                                <connections>
-                                    <segue destination="Gpo-I4-SnC" kind="show" identifier="post" id="2l2-zd-PhO"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="rDk-lR-Mb7"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
-                        <constraints>
-                            <constraint firstItem="9ru-89-vrk" firstAttribute="centerX" secondItem="hnQ-fB-PJI" secondAttribute="centerX" id="ojZ-LA-9mf"/>
-                            <constraint firstItem="9ru-89-vrk" firstAttribute="centerY" secondItem="hnQ-fB-PJI" secondAttribute="centerY" id="z24-rS-igo"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="CTA-33-ygc"/>
                 </viewController>
@@ -115,7 +99,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="vyo-r6-qwt" kind="relationship" relationship="viewControllers" id="hck-4Z-BVs"/>
                         <segue destination="lWj-Ic-cCh" kind="relationship" relationship="viewControllers" id="JOt-Ho-vWO"/>
                     </connections>
                 </tabBarController>
