@@ -34,6 +34,11 @@
 		B4AB309426E9462700E8A690 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AB309326E9462700E8A690 /* CustomButton.swift */; };
 		B4AB309726E9463B00E8A690 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AB309626E9463B00E8A690 /* CustomTextField.swift */; };
 		B4AB309A26E9483200E8A690 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AB309926E9483200E8A690 /* Model.swift */; };
+		B4AB30A326EE179200E8A690 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AB30A226EE179200E8A690 /* TabBarCoordinator.swift */; };
+		B4AB30A726EE1C8400E8A690 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AB30A626EE1C8400E8A690 /* FeedCoordinator.swift */; };
+		B4AB30AA26EE1CEF00E8A690 /* FeedFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AB30A926EE1CEF00E8A690 /* FeedFactory.swift */; };
+		B4AB30AD26EE1E8400E8A690 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AB30AC26EE1E8400E8A690 /* Coordinator.swift */; };
+		B4AB30B126EE22E400E8A690 /* NiewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AB30B026EE22E400E8A690 /* NiewViewController.swift */; };
 		B4CADAD225B609AB00A84DBE /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CADAD125B609AB00A84DBE /* ProfileHeaderView.swift */; };
 		B4CADAD625B60A3300A84DBE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CADAD525B60A3300A84DBE /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
@@ -68,6 +73,11 @@
 		B4AB309326E9462700E8A690 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		B4AB309626E9463B00E8A690 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		B4AB309926E9483200E8A690 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		B4AB30A226EE179200E8A690 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		B4AB30A626EE1C8400E8A690 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
+		B4AB30A926EE1CEF00E8A690 /* FeedFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedFactory.swift; sourceTree = "<group>"; };
+		B4AB30AC26EE1E8400E8A690 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B4AB30B026EE22E400E8A690 /* NiewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiewViewController.swift; sourceTree = "<group>"; };
 		B4CADAD125B609AB00A84DBE /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		B4CADAD525B60A3300A84DBE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F161F68BF7636AE3E7DF93AC /* Pods-Navigation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navigation.release.xcconfig"; path = "Target Support Files/Pods-Navigation/Pods-Navigation.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,9 +121,11 @@
 				060782B1250CE27700A87020 /* AppDelegate.swift */,
 				060782B3250CE27700A87020 /* SceneDelegate.swift */,
 				060782B7250CE27700A87020 /* Main.storyboard */,
+				B4AB30B026EE22E400E8A690 /* NiewViewController.swift */,
 				B4AB309126E9448B00E8A690 /* MVC */,
 				B4A8C05626E2B3B800ADCC3F /* LogIn */,
 				060782BA250CE27A00A87020 /* Assets.xcassets */,
+				B4AB30A126EE175A00E8A690 /* Coordinators */,
 				060782BC250CE27A00A87020 /* LaunchScreen.storyboard */,
 				060782BF250CE27A00A87020 /* Info.plist */,
 				060782C5250CEB0A00A87020 /* InfoViewController.swift */,
@@ -170,8 +182,20 @@
 				B4AB309326E9462700E8A690 /* CustomButton.swift */,
 				B4AB309626E9463B00E8A690 /* CustomTextField.swift */,
 				B4AB309926E9483200E8A690 /* Model.swift */,
+				B4AB30A926EE1CEF00E8A690 /* FeedFactory.swift */,
 			);
 			path = MVC;
+			sourceTree = "<group>";
+		};
+		B4AB30A126EE175A00E8A690 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				B4AB30AC26EE1E8400E8A690 /* Coordinator.swift */,
+				B4AB30A226EE179200E8A690 /* TabBarCoordinator.swift */,
+				B4AB30A626EE1C8400E8A690 /* FeedCoordinator.swift */,
+			);
+			name = Coordinators;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		B4CADAD025B6097600A84DBE /* Profile */ = {
@@ -310,8 +334,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				060782B6250CE27700A87020 /* FeedViewController.swift in Sources */,
+				B4AB30AA26EE1CEF00E8A690 /* FeedFactory.swift in Sources */,
 				B4A8C05D26E52D1800ADCC3F /* Storage.swift in Sources */,
 				060782B2250CE27700A87020 /* AppDelegate.swift in Sources */,
+				B4AB30A326EE179200E8A690 /* TabBarCoordinator.swift in Sources */,
 				B4A8C06826E5302800ADCC3F /* CallPhotosCell.swift in Sources */,
 				B4AB309726E9463B00E8A690 /* CustomTextField.swift in Sources */,
 				B4A8C04626E13DF800ADCC3F /* LogInViewController.swift in Sources */,
@@ -320,6 +346,7 @@
 				060782C6250CEB0A00A87020 /* InfoViewController.swift in Sources */,
 				060782CA250CEE7200A87020 /* Post.swift in Sources */,
 				B4CADAD225B609AB00A84DBE /* ProfileHeaderView.swift in Sources */,
+				B4AB30B126EE22E400E8A690 /* NiewViewController.swift in Sources */,
 				B4A8C04C26E15F3F00ADCC3F /* UserService.swift in Sources */,
 				060782B4250CE27700A87020 /* SceneDelegate.swift in Sources */,
 				B4A8C05426E2AC7100ADCC3F /* MyLoginFactory.swift in Sources */,
@@ -327,9 +354,11 @@
 				B4AB309A26E9483200E8A690 /* Model.swift in Sources */,
 				B4A8C04926E145B500ADCC3F /* User.swift in Sources */,
 				060782C8250CEE5D00A87020 /* PostViewController.swift in Sources */,
+				B4AB30AD26EE1E8400E8A690 /* Coordinator.swift in Sources */,
 				B4AB308F26E93C4200E8A690 /* LoginButton.swift in Sources */,
 				B4A8C06A26E5302800ADCC3F /* PhotoForGalleryCell.swift in Sources */,
 				B4AB309426E9462700E8A690 /* CustomButton.swift in Sources */,
+				B4AB30A726EE1C8400E8A690 /* FeedCoordinator.swift in Sources */,
 				B4A8C06626E5302800ADCC3F /* Gallary.swift in Sources */,
 				B4A8C06926E5302800ADCC3F /* PostTableViewCell.swift in Sources */,
 				B4A8C06B26E5302800ADCC3F /* GallaryPhotosUINavigationController.swift in Sources */,

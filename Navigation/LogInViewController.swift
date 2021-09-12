@@ -13,6 +13,7 @@ class LogInViewController: UIViewController {
         image.toAutoLayout()
         return image
     }()
+    
     lazy var loginButton: LoginButton = {
         let loginButton = LoginButton(tittle: "Log in", cornerRadius: 10, backGroundImage: #imageLiteral(resourceName: "blue_pixel"), titTileColor: .white) { [weak self] in
             guard let logIn = self?.textfieldTwo.text else  { return }

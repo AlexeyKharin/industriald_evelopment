@@ -1,5 +1,7 @@
 import UIKit
 final class FeedViewController: UIViewController {
+
+    var showNewComtroller: (() -> Void)?
     
     var model: ModelCheck
     
@@ -40,12 +42,32 @@ final class FeedViewController: UIViewController {
         return textField
     }()
     
+    lazy var button: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .blue
+        button.setTitle("Show NewController", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 4
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowRadius = 4
+        button.toAutoLayout()
+        button.layer.shadowOffset = CGSize(width: 4, height: 4)
+        button.layer.shadowOpacity = 0.7
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc func buttonPressed() {
+        showNewComtroller?()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGreen
         view.addSubview(customButton)
         view.addSubview(customTextField)
         view.addSubview(resultOfCheck)
+        view.addSubview(button)
         
         model.response = {[weak self] bool in
             switch bool {
@@ -70,7 +92,12 @@ final class FeedViewController: UIViewController {
             resultOfCheck.centerXAnchor.constraint(equalTo: customButton.centerXAnchor),
             resultOfCheck.widthAnchor.constraint(equalToConstant: 200),
             resultOfCheck.heightAnchor.constraint(equalToConstant: 100),
-            resultOfCheck.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40)
+            resultOfCheck.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            
+            button.topAnchor.constraint(equalTo: customButton.bottomAnchor, constant: 40),
+            button.widthAnchor.constraint(equalToConstant: 200),
+            button.centerXAnchor.constraint(equalTo: customButton.centerXAnchor),
+            button.heightAnchor.constraint(equalToConstant: 40)
         ]
         
         NSLayoutConstraint.activate(constraints)

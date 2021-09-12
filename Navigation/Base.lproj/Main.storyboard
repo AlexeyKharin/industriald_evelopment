@@ -103,6 +103,11 @@
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kqe-LH-kso" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Udk-dM-6rZ" customClass="tabBarCoordinator" customModule="Navigation" customModuleProvider="target">
+                    <connections>
+                        <outlet property="tabBarController" destination="VVa-ty-c3K" id="RXp-1S-5nD"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-1059" y="-128"/>
         </scene>
