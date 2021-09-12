@@ -5,7 +5,16 @@ import SnapKit
 
 class LogInViewController: UIViewController {
     
-    var delegate: LoginFactory?
+    var viewModel: ViewModel
+    
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     var image: UIImageView = {
         let image = UIImageView()
@@ -18,15 +27,7 @@ class LogInViewController: UIViewController {
         let loginButton = LoginButton(tittle: "Log in", cornerRadius: 10, backGroundImage: #imageLiteral(resourceName: "blue_pixel"), titTileColor: .white) { [weak self] in
             guard let logIn = self?.textfieldTwo.text else  { return }
             guard let pswd  = self?.textfieldOne.text else  { return }
-            #if DEBUG
-            if self?.delegate?.makeLoginInspector().checkLoginAndPswd(login: logIn, pswd: pswd) == true {
-                let vc = ProfileViewController(userService: TestUserService(), nameUser: logIn)
-                self?.navigationController?.pushViewController(vc, animated: true)
-            }
-            #else
-            let vc = ProfileViewController(userService: CurrentUserService(), nameUser: logIn)
-            self?.navigationController?.pushViewController(vc, animated: true)
-            #endif
+            self?.viewModel.onTapShowProfile(logIn, pswd)
         }
         loginButton.layer.masksToBounds = true
         loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
@@ -44,7 +45,6 @@ class LogInViewController: UIViewController {
         stack.clipsToBounds = true
         return stack
     }()
-    
     
     lazy var textfieldOne: MyTextField = {
         let textField = MyTextField()
