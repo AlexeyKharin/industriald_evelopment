@@ -4,23 +4,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
-    private let myLoginFactory = MyLoginFactory()
-    private let model = Model()
+    let tabBarCoordinator = TabBarCoordinator()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
    
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let scene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: scene)
         
-        if let tabController = window?.rootViewController as? UITabBarController,let loginNavigation = tabController.viewControllers?.last as? UINavigationController, let loginController = loginNavigation.viewControllers.last as? LogInViewController {
-            loginController.delegate = myLoginFactory
-        }
-        
-        if let tabController = window?.rootViewController as? UITabBarController {
-            let feedController = FeedViewController(model: model)
-            tabController.viewControllers?.append(feedController)
-            tabController.viewControllers![1].tabBarItem.selectedImage =  UIImage(systemName: "magnifyingglass")?.withTintColor(UIColor.systemRed).withRenderingMode(.alwaysOriginal)
-            tabController.viewControllers![1].tabBarItem.image = UIImage(systemName: "magnifyingglass")?.withTintColor(UIColor.systemGray4).withRenderingMode(.alwaysOriginal)
-        }
+        window?.rootViewController = tabBarCoordinator.tabBarController
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -50,7 +42,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
 
