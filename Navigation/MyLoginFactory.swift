@@ -7,6 +7,6 @@ protocol LoginFactory {
 
 struct MyLoginFactory: LoginFactory {
     func makeLoginInspector() -> LoginViewControllerDelegate {
-        return LoginInspector.shared
+        return LoginInspector()
     }
 }

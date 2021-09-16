@@ -29,7 +29,10 @@
 		B4A8C06926E5302800ADCC3F /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8C06226E5302800ADCC3F /* PostTableViewCell.swift */; };
 		B4A8C06A26E5302800ADCC3F /* PhotoForGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8C06326E5302800ADCC3F /* PhotoForGalleryCell.swift */; };
 		B4A8C06B26E5302800ADCC3F /* GallaryPhotosUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8C06426E5302800ADCC3F /* GallaryPhotosUINavigationController.swift */; };
-		B4AB308A26E7CAC100E8A690 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = B4AB308926E7CAC100E8A690 /* iOSIntPackage */; };
+
+	
+		B4AB30C126F3692A00E8A690 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AB30C026F3692900E8A690 /* Checker.swift */; };
+
 		B4CADAD225B609AB00A84DBE /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CADAD125B609AB00A84DBE /* ProfileHeaderView.swift */; };
 		B4CADAD625B60A3300A84DBE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CADAD525B60A3300A84DBE /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +63,7 @@
 		B4A8C06226E5302800ADCC3F /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		B4A8C06326E5302800ADCC3F /* PhotoForGalleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoForGalleryCell.swift; sourceTree = "<group>"; };
 		B4A8C06426E5302800ADCC3F /* GallaryPhotosUINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GallaryPhotosUINavigationController.swift; sourceTree = "<group>"; };
+		B4AB30C026F3692900E8A690 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		B4CADAD125B609AB00A84DBE /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		B4CADAD525B60A3300A84DBE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F161F68BF7636AE3E7DF93AC /* Pods-Navigation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navigation.release.xcconfig"; path = "Target Support Files/Pods-Navigation/Pods-Navigation.release.xcconfig"; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 				B4A8C04B26E15F3F00ADCC3F /* UserService.swift */,
 				B4A8C05026E29EDB00ADCC3F /* LoginInspector.swift */,
 				B4A8C05326E2AC7100ADCC3F /* MyLoginFactory.swift */,
+				B4AB30C026F3692900E8A690 /* Checker.swift */,
 			);
 			name = LogIn;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 				B4A8C06A26E5302800ADCC3F /* PhotoForGalleryCell.swift in Sources */,
 				B4A8C06626E5302800ADCC3F /* Gallary.swift in Sources */,
 				B4A8C06926E5302800ADCC3F /* PostTableViewCell.swift in Sources */,
+				B4AB30C126F3692A00E8A690 /* Checker.swift in Sources */,
 				B4A8C06B26E5302800ADCC3F /* GallaryPhotosUINavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
