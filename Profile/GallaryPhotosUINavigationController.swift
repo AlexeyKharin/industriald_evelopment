@@ -31,6 +31,8 @@ class GallaryPhotosUINavigationController: UIViewController {
         view.backgroundColor = .white
         layout.scrollDirection = .vertical
         view.addSubview(collectionView)
+        images = Gallary.gallary[0].repository.map { $0.image }
+        imagePublisherFacade.addImagesWithTimer(time: 1, repeat: 20, userImages: images)
     }
     
     override func viewWillLayoutSubviews() {
@@ -46,23 +48,18 @@ class GallaryPhotosUINavigationController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        Gallary.gallary[0].repository.forEach { images.append($0.image)}
         imagePublisherFacade.subscribe(self)
-        imagePublisherFacade.addImagesWithTimer(time: 1, repeat: 20, userImages: images)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
+        imagePublisherFacade.rechargeImageLibrary()
         imagePublisherFacade.removeSubscription(for: self)
+        collectiomImages = []
     }
 }
 
-extension GallaryPhotosUINavigationController: UICollectionViewDataSource, ImageLibrarySubscriber {
-    
-    func receive(images: [UIImage]) {
-        self.collectiomImages = images
-        self.collectionView.reloadData()
-    }
+extension GallaryPhotosUINavigationController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return collectiomImages.count
@@ -102,3 +99,10 @@ extension GallaryPhotosUINavigationController: UICollectionViewDelegateFlowLayou
     }
 }
 
+extension  GallaryPhotosUINavigationController: ImageLibrarySubscriber {
+    func receive(images: [UIImage]) {
+        self.collectiomImages = images
+        let indexPath = IndexPath(item: collectiomImages.count - 1, section: 0)
+        self.collectionView.insertItems(at: [indexPath])
+    }
+}
