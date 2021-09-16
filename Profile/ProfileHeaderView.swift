@@ -42,26 +42,17 @@ class ProfileHeaderForSectionOne: UITableViewHeaderFooterView {
         return label
     }()
     
-    lazy var button: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = .blue
-        print("button \(type(of: self))")
-        button.setTitle("Show status", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 4
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowRadius = 4
-        button.toAutoLayout()
-        button.layer.shadowOffset = CGSize(width: 4, height: 4)
-        button.layer.shadowOpacity = 0.7
-        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        return button
+    lazy var button: CustomButton = {
+        let customButton = CustomButton(title: "Show status", cornerRadius: 4, background: .color(UIColor.blue), titleColor: .white) {
+            guard self.textfield.text?.count != 0 else { return self.labeltwo.text = "Waiting for sonething..." }
+            self.labeltwo.text = self.textfield.text
+        }
+        customButton.layer.shadowColor = UIColor.black.cgColor
+        customButton.layer.shadowRadius = 4
+        customButton.layer.shadowOffset = CGSize(width: 4, height: 4)
+        customButton.layer.shadowOpacity = 0.7
+        return customButton
     }()
-    
-    @objc func buttonPressed() {
-        guard textfield.text?.count != 0 else { return labeltwo.text = "Waiting for sonething..." }
-        labeltwo.text = textfield.text
-    }
     
     lazy var labeltwo: UILabel = {
         let label = UILabel()

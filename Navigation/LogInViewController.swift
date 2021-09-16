@@ -14,8 +14,8 @@ class LogInViewController: UIViewController {
         return image
     }()
 
-    lazy var loginButton: LoginButton = {
-        let loginButton = LoginButton(tittle: "Log in", cornerRadius: 10, backGroundImage: #imageLiteral(resourceName: "blue_pixel"), titTileColor: .white) { [weak self] in
+    lazy var loginButton: CustomButton = {
+        let loginButton = CustomButton(title: "Log in", cornerRadius: 10, background: .image(#imageLiteral(resourceName: "blue_pixel")), titleColor: .white) { [weak self] in
             guard let logIn = self?.textfieldTwo.text else  { return }
             guard let pswd  = self?.textfieldOne.text else  { return }
             #if DEBUG
