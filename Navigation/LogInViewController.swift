@@ -19,7 +19,7 @@ class LogInViewController: UIViewController {
             guard let logIn = self?.textfieldTwo.text else  { return }
             guard let pswd  = self?.textfieldOne.text else  { return }
             #if DEBUG
-            if self?.delegate?.makeLoginInspector().checkLoginAndPswd(login: logIn, pswd: pswd) == true {
+            if self?.factoryGenerateDelegate?.makeLoginInspector().checkLoginAndPswd(login: logIn, pswd: pswd) == true {
                 let vc = ProfileViewController(userService: TestUserService(), nameUser: logIn)
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
