@@ -13,15 +13,15 @@ final class FeedViewController: UIViewController {
     }
     
     lazy var customButton: CustomButton = {
-        let loginButton = CustomButton(tittle: "Check", cornerRadius: 5, backgroundColor: .yellow, titTileColor: .green) { [weak self] in
-            guard let intermediateSafety = self?.intermediate else { return }
+        let loginButton = CustomButton(title: "Check", cornerRadius: 5, background: .color(UIColor.yellow), titleColor: .green) { [weak self] in
+            guard let intermediateSafety = self?.enteredModelLogin else { return }
             self?.model.check(password: intermediateSafety)
         }
         return loginButton
     }()
     
-    var intermediate: String?
-        
+    var enteredModelLogin: String?
+    
     lazy var resultOfCheck: UIView = {
         let resultOfCheck = UIView()
         resultOfCheck.toAutoLayout()
@@ -32,9 +32,8 @@ final class FeedViewController: UIViewController {
     lazy var customTextField: CustomTextField = {
         
         let textField = CustomTextField(placeholder: "CheckPassword") { [weak self] text in
-            self?.intermediate = text
+            self?.enteredModelLogin = text
         }
-        
         textField.backgroundColor = .white
         textField.layer.cornerRadius = 5
         return textField
