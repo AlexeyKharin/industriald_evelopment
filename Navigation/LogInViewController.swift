@@ -5,7 +5,7 @@ import SnapKit
 
 class LogInViewController: UIViewController {
     
-    var delegate: LoginFactory?
+    var factoryGenerateDelegate: LoginFactory?
     
     var image: UIImageView = {
         let image = UIImageView()
@@ -34,7 +34,7 @@ class LogInViewController: UIViewController {
         guard let logIn = textfieldTwo.text else  { return }
         guard let pswd  = textfieldOne.text else  { return }
         #if DEBUG
-        if delegate?.makeLoginInspector().checkLoginAndPswd(login: logIn, pswd: pswd) == true {
+        if factoryGenerateDelegate?.makeLoginInspector().checkLoginAndPswd(login: logIn, pswd: pswd) == true {
             let vc = ProfileViewController(userService: TestUserService(), nameUser: logIn)
             navigationController?.pushViewController(vc, animated: true)
         }

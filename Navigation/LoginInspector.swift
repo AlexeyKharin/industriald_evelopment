@@ -7,22 +7,12 @@ protocol LoginViewControllerDelegate {
 
 class LoginInspector: LoginViewControllerDelegate {
     
-    var login: String
-    
-    var pswd: String
-    
-    public static let shared: LoginInspector = .init()
-    
-    private init() {
-        self.login = "Guy"
-        self.pswd = "Mayto"
-    }
+    let checker = Checker.shared
     
     func checkLoginAndPswd(login: String, pswd: String) -> Bool {
-        if login == self.login && pswd == self.pswd {
-            return true
-        } else {
-            return false
-        }
+        let result = checker.check(login: login, pswd: pswd)
+        guard result else { return false }
+        return true
     }
 }
+
